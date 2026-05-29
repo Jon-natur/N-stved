@@ -40,12 +40,12 @@
         <script src="js/leaflet.photon.js"></script>
         <script src="data/Navngivningspunkt_0.js"></script>
         <script src="data/Vejnavne_2.js"></script>
-        <script src="data/Natur360besigtigelser2026medFeltID_3.js"></script>
+        <script src="data/Naturkortlgningwebgis_3.js"></script>
         <script src="data/MulignynaturWebGISlagpotentiel_ny_natur_4.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[55.21701495183777,11.948027339467783],[55.228583304306724,11.975049186774816]]);
+        }).fitBounds([[55.22242761823474,11.930145084828348],[55.245442005564584,11.979263139901267]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/qgis2web/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -119,6 +119,10 @@
         }
         function pop_Navngivningspunkt_0(feature, layer) {
             var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">id</th>\
+                        <td>' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -179,8 +183,36 @@
         function pop_Vejnavne_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
+                        <th scope="row">full_id</th>\
+                        <td>' + (feature.properties['full_id'] !== null ? autolinker.link(String(feature.properties['full_id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">osm_id</th>\
+                        <td>' + (feature.properties['osm_id'] !== null ? autolinker.link(String(feature.properties['osm_id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">osm_type</th>\
+                        <td>' + (feature.properties['osm_type'] !== null ? autolinker.link(String(feature.properties['osm_type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">highway</th>\
+                        <td>' + (feature.properties['highway'] !== null ? autolinker.link(String(feature.properties['highway']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
                         <th scope="row">name</th>\
                         <td>' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">surface</th>\
+                        <td>' + (feature.properties['surface'] !== null ? autolinker.link(String(feature.properties['surface']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">maxspeed</th>\
+                        <td>' + (feature.properties['maxspeed'] !== null ? autolinker.link(String(feature.properties['maxspeed']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ref</th>\
+                        <td>' + (feature.properties['ref'] !== null ? autolinker.link(String(feature.properties['ref']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -230,8 +262,12 @@
         });
         bounds_group.addLayer(layer_Vejnavne_2);
         map.addLayer(layer_Vejnavne_2);
-        function pop_Natur360besigtigelser2026medFeltID_3(feature, layer) {
+        function pop_Naturkortlgningwebgis_3(feature, layer) {
             var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Natyp_kode</th>\
+                        <td>' + (feature.properties['Natyp_kode'] !== null ? autolinker.link(String(feature.properties['Natyp_kode']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
                     <tr>\
                         <th scope="row">Natyp_navn</th>\
                         <td>' + (feature.properties['Natyp_navn'] !== null ? autolinker.link(String(feature.properties['Natyp_navn']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -245,8 +281,8 @@
                         <td>' + (feature.properties['Besig_dato'] !== null ? autolinker.link(String(feature.properties['Besig_dato']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">FeltID</th>\
-                        <td>' + (feature.properties['polygon_Na'] !== null ? autolinker.link(String(feature.properties['polygon_Na']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">polygon_name</th>\
+                        <td>' + (feature.properties['polygon_name'] !== null ? autolinker.link(String(feature.properties['polygon_name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -256,11 +292,11 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Natur360besigtigelser2026medFeltID_3_0(feature) {
+        function style_Naturkortlgningwebgis_3_0(feature) {
             switch(String(feature.properties['Natyp_navn'])) {
                 case 'Eng':
                     return {
-                pane: 'pane_Natur360besigtigelser2026medFeltID_3',
+                pane: 'pane_Naturkortlgningwebgis_3',
                 opacity: 1,
                 color: 'rgba(77,175,74,1.0)',
                 dashArray: '',
@@ -273,7 +309,7 @@
                     break;
                 case 'Mose':
                     return {
-                pane: 'pane_Natur360besigtigelser2026medFeltID_3',
+                pane: 'pane_Naturkortlgningwebgis_3',
                 opacity: 1,
                 color: 'rgba(228,26,28,1.0)',
                 dashArray: '',
@@ -286,7 +322,7 @@
                     break;
                 case 'Overdrev':
                     return {
-                pane: 'pane_Natur360besigtigelser2026medFeltID_3',
+                pane: 'pane_Naturkortlgningwebgis_3',
                 opacity: 1,
                 color: 'rgba(255,254,0,1.0)',
                 dashArray: '',
@@ -299,7 +335,7 @@
                     break;
                 case 'Sø':
                     return {
-                pane: 'pane_Natur360besigtigelser2026medFeltID_3',
+                pane: 'pane_Naturkortlgningwebgis_3',
                 opacity: 1,
                 color: 'rgba(53,121,177,1.0)',
                 dashArray: '',
@@ -312,7 +348,7 @@
                     break;
                 default:
                     return {
-                pane: 'pane_Natur360besigtigelser2026medFeltID_3',
+                pane: 'pane_Naturkortlgningwebgis_3',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -327,24 +363,29 @@
                     break;
             }
         }
-        map.createPane('pane_Natur360besigtigelser2026medFeltID_3');
-        map.getPane('pane_Natur360besigtigelser2026medFeltID_3').style.zIndex = 403;
-        map.getPane('pane_Natur360besigtigelser2026medFeltID_3').style['mix-blend-mode'] = 'normal';
-        var layer_Natur360besigtigelser2026medFeltID_3 = new L.geoJson(json_Natur360besigtigelser2026medFeltID_3, {
+        map.createPane('pane_Naturkortlgningwebgis_3');
+        map.getPane('pane_Naturkortlgningwebgis_3').style.zIndex = 403;
+        map.getPane('pane_Naturkortlgningwebgis_3').style['mix-blend-mode'] = 'normal';
+        var layer_Naturkortlgningwebgis_3 = new L.geoJson(json_Naturkortlgningwebgis_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Natur360besigtigelser2026medFeltID_3',
-            layerName: 'layer_Natur360besigtigelser2026medFeltID_3',
-            pane: 'pane_Natur360besigtigelser2026medFeltID_3',
-            onEachFeature: pop_Natur360besigtigelser2026medFeltID_3,
-            style: style_Natur360besigtigelser2026medFeltID_3_0,
+            dataVar: 'json_Naturkortlgningwebgis_3',
+            layerName: 'layer_Naturkortlgningwebgis_3',
+            pane: 'pane_Naturkortlgningwebgis_3',
+            onEachFeature: pop_Naturkortlgningwebgis_3,
+            style: style_Naturkortlgningwebgis_3_0,
         });
-        bounds_group.addLayer(layer_Natur360besigtigelser2026medFeltID_3);
-        map.addLayer(layer_Natur360besigtigelser2026medFeltID_3);
+        bounds_group.addLayer(layer_Naturkortlgningwebgis_3);
+        map.addLayer(layer_Naturkortlgningwebgis_3);
         function pop_MulignynaturWebGISlagpotentiel_ny_natur_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">fid</th>\
+                        <td>' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">id</th>\
+                        <td>' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Naturtype</th>\
@@ -422,12 +463,12 @@
               i++;
         });
         var i = 0;
-        layer_Natur360besigtigelser2026medFeltID_3.eachLayer(function(layer) {
+        layer_Naturkortlgningwebgis_3.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['polygon_Na'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['polygon_Na']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Natur360besigtigelser2026medFeltID_3'});
+            layer.bindTooltip((layer.feature.properties['polygon_name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['polygon_name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Naturkortlgningwebgis_3'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -447,15 +488,15 @@
               addLabel(layer, i);
               i++;
         });
-        resetLabels([layer_Vejnavne_2,layer_Natur360besigtigelser2026medFeltID_3,layer_MulignynaturWebGISlagpotentiel_ny_natur_4]);
+        resetLabels([layer_Vejnavne_2,layer_Naturkortlgningwebgis_3,layer_MulignynaturWebGISlagpotentiel_ny_natur_4]);
         map.on("zoomend", function(){
-            resetLabels([layer_Vejnavne_2,layer_Natur360besigtigelser2026medFeltID_3,layer_MulignynaturWebGISlagpotentiel_ny_natur_4]);
+            resetLabels([layer_Vejnavne_2,layer_Naturkortlgningwebgis_3,layer_MulignynaturWebGISlagpotentiel_ny_natur_4]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_Vejnavne_2,layer_Natur360besigtigelser2026medFeltID_3,layer_MulignynaturWebGISlagpotentiel_ny_natur_4]);
+            resetLabels([layer_Vejnavne_2,layer_Naturkortlgningwebgis_3,layer_MulignynaturWebGISlagpotentiel_ny_natur_4]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_Vejnavne_2,layer_Natur360besigtigelser2026medFeltID_3,layer_MulignynaturWebGISlagpotentiel_ny_natur_4]);
+            resetLabels([layer_Vejnavne_2,layer_Naturkortlgningwebgis_3,layer_MulignynaturWebGISlagpotentiel_ny_natur_4]);
         });
         </script>        
     </body>
