@@ -38,12 +38,13 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet.photon.js"></script>
-        <script src="data/Natur360besigtigelser2026medFeltID_1.js"></script>
-        <script src="data/MulignynaturWebGISlagpotentiel_ny_natur_2.js"></script>
+        <script src="data/Navngivningspunkt_0.js"></script>
+        <script src="data/Natur360besigtigelser2026medFeltID_2.js"></script>
+        <script src="data/MulignynaturWebGISlagpotentiel_ny_natur_3.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[55.226125513264485,11.886951910301436],[55.250995620338784,11.94272239869312]]);
+        }).fitBounds([[55.17646348942949,11.805767882001017],[55.27666166827114,12.057532155080967]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/qgis2web/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -115,10 +116,56 @@
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
-        map.createPane('pane_GoogleSatelithybrid_0');
-        map.getPane('pane_GoogleSatelithybrid_0').style.zIndex = 400;
-        var layer_GoogleSatelithybrid_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
-            pane: 'pane_GoogleSatelithybrid_0',
+        function pop_Navngivningspunkt_0(feature, layer) {
+            var popupContent = '<table>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_Navngivningspunkt_0_0() {
+            return {
+                pane: 'pane_Navngivningspunkt_0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(243,166,178,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Navngivningspunkt_0');
+        map.getPane('pane_Navngivningspunkt_0').style.zIndex = 400;
+        map.getPane('pane_Navngivningspunkt_0').style['mix-blend-mode'] = 'normal';
+        var layer_Navngivningspunkt_0 = new L.geoJson(json_Navngivningspunkt_0, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Navngivningspunkt_0',
+            layerName: 'layer_Navngivningspunkt_0',
+            pane: 'pane_Navngivningspunkt_0',
+            onEachFeature: pop_Navngivningspunkt_0,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Navngivningspunkt_0_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Navngivningspunkt_0);
+        map.addLayer(layer_Navngivningspunkt_0);
+        map.createPane('pane_GoogleSatelithybrid_1');
+        map.getPane('pane_GoogleSatelithybrid_1').style.zIndex = 401;
+        var layer_GoogleSatelithybrid_1 = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleSatelithybrid_1',
             opacity: 1.0,
             attribution: '',
             minZoom: 1,
@@ -126,9 +173,9 @@
             minNativeZoom: 0,
             maxNativeZoom: 18
         });
-        layer_GoogleSatelithybrid_0;
-        map.addLayer(layer_GoogleSatelithybrid_0);
-        function pop_Natur360besigtigelser2026medFeltID_1(feature, layer) {
+        layer_GoogleSatelithybrid_1;
+        map.addLayer(layer_GoogleSatelithybrid_1);
+        function pop_Natur360besigtigelser2026medFeltID_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Natyp_navn</th>\
@@ -154,11 +201,11 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Natur360besigtigelser2026medFeltID_1_0(feature) {
+        function style_Natur360besigtigelser2026medFeltID_2_0(feature) {
             switch(String(feature.properties['Natyp_navn'])) {
                 case 'Eng':
                     return {
-                pane: 'pane_Natur360besigtigelser2026medFeltID_1',
+                pane: 'pane_Natur360besigtigelser2026medFeltID_2',
                 opacity: 1,
                 color: 'rgba(77,175,74,1.0)',
                 dashArray: '',
@@ -171,7 +218,7 @@
                     break;
                 case 'Mose':
                     return {
-                pane: 'pane_Natur360besigtigelser2026medFeltID_1',
+                pane: 'pane_Natur360besigtigelser2026medFeltID_2',
                 opacity: 1,
                 color: 'rgba(228,26,28,1.0)',
                 dashArray: '',
@@ -184,7 +231,7 @@
                     break;
                 case 'Overdrev':
                     return {
-                pane: 'pane_Natur360besigtigelser2026medFeltID_1',
+                pane: 'pane_Natur360besigtigelser2026medFeltID_2',
                 opacity: 1,
                 color: 'rgba(255,254,0,1.0)',
                 dashArray: '',
@@ -197,7 +244,7 @@
                     break;
                 case 'Sø':
                     return {
-                pane: 'pane_Natur360besigtigelser2026medFeltID_1',
+                pane: 'pane_Natur360besigtigelser2026medFeltID_2',
                 opacity: 1,
                 color: 'rgba(53,121,177,1.0)',
                 dashArray: '',
@@ -210,7 +257,7 @@
                     break;
                 default:
                     return {
-                pane: 'pane_Natur360besigtigelser2026medFeltID_1',
+                pane: 'pane_Natur360besigtigelser2026medFeltID_2',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -225,21 +272,21 @@
                     break;
             }
         }
-        map.createPane('pane_Natur360besigtigelser2026medFeltID_1');
-        map.getPane('pane_Natur360besigtigelser2026medFeltID_1').style.zIndex = 401;
-        map.getPane('pane_Natur360besigtigelser2026medFeltID_1').style['mix-blend-mode'] = 'normal';
-        var layer_Natur360besigtigelser2026medFeltID_1 = new L.geoJson(json_Natur360besigtigelser2026medFeltID_1, {
+        map.createPane('pane_Natur360besigtigelser2026medFeltID_2');
+        map.getPane('pane_Natur360besigtigelser2026medFeltID_2').style.zIndex = 402;
+        map.getPane('pane_Natur360besigtigelser2026medFeltID_2').style['mix-blend-mode'] = 'normal';
+        var layer_Natur360besigtigelser2026medFeltID_2 = new L.geoJson(json_Natur360besigtigelser2026medFeltID_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Natur360besigtigelser2026medFeltID_1',
-            layerName: 'layer_Natur360besigtigelser2026medFeltID_1',
-            pane: 'pane_Natur360besigtigelser2026medFeltID_1',
-            onEachFeature: pop_Natur360besigtigelser2026medFeltID_1,
-            style: style_Natur360besigtigelser2026medFeltID_1_0,
+            dataVar: 'json_Natur360besigtigelser2026medFeltID_2',
+            layerName: 'layer_Natur360besigtigelser2026medFeltID_2',
+            pane: 'pane_Natur360besigtigelser2026medFeltID_2',
+            onEachFeature: pop_Natur360besigtigelser2026medFeltID_2,
+            style: style_Natur360besigtigelser2026medFeltID_2_0,
         });
-        bounds_group.addLayer(layer_Natur360besigtigelser2026medFeltID_1);
-        map.addLayer(layer_Natur360besigtigelser2026medFeltID_1);
-        function pop_MulignynaturWebGISlagpotentiel_ny_natur_2(feature, layer) {
+        bounds_group.addLayer(layer_Natur360besigtigelser2026medFeltID_2);
+        map.addLayer(layer_Natur360besigtigelser2026medFeltID_2);
+        function pop_MulignynaturWebGISlagpotentiel_ny_natur_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -260,7 +307,7 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        var pattern_MulignynaturWebGISlagpotentiel_ny_natur_2_0 = new L.StripePattern({
+        var pattern_MulignynaturWebGISlagpotentiel_ny_natur_3_0 = new L.StripePattern({
             weight: 0.3,
             spaceWeight: 2.0,
             color: '#df1cea',
@@ -268,19 +315,19 @@
             spaceOpacity: 0,
             angle: 225
         });
-        pattern_MulignynaturWebGISlagpotentiel_ny_natur_2_0.addTo(map);
-        function style_MulignynaturWebGISlagpotentiel_ny_natur_2_0() {
+        pattern_MulignynaturWebGISlagpotentiel_ny_natur_3_0.addTo(map);
+        function style_MulignynaturWebGISlagpotentiel_ny_natur_3_0() {
             return {
-                pane: 'pane_MulignynaturWebGISlagpotentiel_ny_natur_2',
+                pane: 'pane_MulignynaturWebGISlagpotentiel_ny_natur_3',
                 stroke: false,
                 fillOpacity: 1,
-                fillPattern: pattern_MulignynaturWebGISlagpotentiel_ny_natur_2_0,
+                fillPattern: pattern_MulignynaturWebGISlagpotentiel_ny_natur_3_0,
                 interactive: true,
             }
         }
-        function style_MulignynaturWebGISlagpotentiel_ny_natur_2_1() {
+        function style_MulignynaturWebGISlagpotentiel_ny_natur_3_1() {
             return {
-                pane: 'pane_MulignynaturWebGISlagpotentiel_ny_natur_2',
+                pane: 'pane_MulignynaturWebGISlagpotentiel_ny_natur_3',
                 opacity: 1,
                 color: 'rgba(223,28,234,1.0)',
                 dashArray: '',
@@ -291,28 +338,28 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_MulignynaturWebGISlagpotentiel_ny_natur_2');
-        map.getPane('pane_MulignynaturWebGISlagpotentiel_ny_natur_2').style.zIndex = 402;
-        map.getPane('pane_MulignynaturWebGISlagpotentiel_ny_natur_2').style['mix-blend-mode'] = 'normal';
-        var layer_MulignynaturWebGISlagpotentiel_ny_natur_2 = new L.geoJson.multiStyle(json_MulignynaturWebGISlagpotentiel_ny_natur_2, {
+        map.createPane('pane_MulignynaturWebGISlagpotentiel_ny_natur_3');
+        map.getPane('pane_MulignynaturWebGISlagpotentiel_ny_natur_3').style.zIndex = 403;
+        map.getPane('pane_MulignynaturWebGISlagpotentiel_ny_natur_3').style['mix-blend-mode'] = 'normal';
+        var layer_MulignynaturWebGISlagpotentiel_ny_natur_3 = new L.geoJson.multiStyle(json_MulignynaturWebGISlagpotentiel_ny_natur_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_MulignynaturWebGISlagpotentiel_ny_natur_2',
-            layerName: 'layer_MulignynaturWebGISlagpotentiel_ny_natur_2',
-            pane: 'pane_MulignynaturWebGISlagpotentiel_ny_natur_2',
-            onEachFeature: pop_MulignynaturWebGISlagpotentiel_ny_natur_2,
-            styles: [style_MulignynaturWebGISlagpotentiel_ny_natur_2_0,style_MulignynaturWebGISlagpotentiel_ny_natur_2_1,]
+            dataVar: 'json_MulignynaturWebGISlagpotentiel_ny_natur_3',
+            layerName: 'layer_MulignynaturWebGISlagpotentiel_ny_natur_3',
+            pane: 'pane_MulignynaturWebGISlagpotentiel_ny_natur_3',
+            onEachFeature: pop_MulignynaturWebGISlagpotentiel_ny_natur_3,
+            styles: [style_MulignynaturWebGISlagpotentiel_ny_natur_3_0,style_MulignynaturWebGISlagpotentiel_ny_natur_3_1,]
         });
-        bounds_group.addLayer(layer_MulignynaturWebGISlagpotentiel_ny_natur_2);
-        map.addLayer(layer_MulignynaturWebGISlagpotentiel_ny_natur_2);
+        bounds_group.addLayer(layer_MulignynaturWebGISlagpotentiel_ny_natur_3);
+        map.addLayer(layer_MulignynaturWebGISlagpotentiel_ny_natur_3);
         setBounds();
         var i = 0;
-        layer_Natur360besigtigelser2026medFeltID_1.eachLayer(function(layer) {
+        layer_Natur360besigtigelser2026medFeltID_2.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['polygon_Na'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['polygon_Na']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Natur360besigtigelser2026medFeltID_1'});
+            layer.bindTooltip((layer.feature.properties['polygon_Na'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['polygon_Na']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Natur360besigtigelser2026medFeltID_2'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -320,27 +367,27 @@
               i++;
         });
         var i = 0;
-        layer_MulignynaturWebGISlagpotentiel_ny_natur_2.eachLayer(function(layer) {
+        layer_MulignynaturWebGISlagpotentiel_ny_natur_3.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['ID_1'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['ID_1']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_MulignynaturWebGISlagpotentiel_ny_natur_2'});
+            layer.bindTooltip((layer.feature.properties['ID_1'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['ID_1']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_MulignynaturWebGISlagpotentiel_ny_natur_3'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
               addLabel(layer, i);
               i++;
         });
-        resetLabels([layer_Natur360besigtigelser2026medFeltID_1,layer_MulignynaturWebGISlagpotentiel_ny_natur_2]);
+        resetLabels([layer_Natur360besigtigelser2026medFeltID_2,layer_MulignynaturWebGISlagpotentiel_ny_natur_3]);
         map.on("zoomend", function(){
-            resetLabels([layer_Natur360besigtigelser2026medFeltID_1,layer_MulignynaturWebGISlagpotentiel_ny_natur_2]);
+            resetLabels([layer_Natur360besigtigelser2026medFeltID_2,layer_MulignynaturWebGISlagpotentiel_ny_natur_3]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_Natur360besigtigelser2026medFeltID_1,layer_MulignynaturWebGISlagpotentiel_ny_natur_2]);
+            resetLabels([layer_Natur360besigtigelser2026medFeltID_2,layer_MulignynaturWebGISlagpotentiel_ny_natur_3]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_Natur360besigtigelser2026medFeltID_1,layer_MulignynaturWebGISlagpotentiel_ny_natur_2]);
+            resetLabels([layer_Natur360besigtigelser2026medFeltID_2,layer_MulignynaturWebGISlagpotentiel_ny_natur_3]);
         });
         </script>        
     </body>
