@@ -1,1 +1,0 @@
-var json_Navngivningspunkt_0 = {"type":"FeatureCollection","name":"Navngivningspunkt_0","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"id":"1"},"geometry":{"type":"Point","coordinates":[11.602493757357871,55.255488535941687]}}]}
