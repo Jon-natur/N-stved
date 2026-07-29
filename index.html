@@ -38,13 +38,12 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet.photon.js"></script>
-        <script src="data/WebGISlagnatur360_besigtigelser_2026_med_feltid_1.js"></script>
-        <script src="data/Natur360besigtigelser2026medFeltID_2.js"></script>
-        <script src="data/MulignynaturWebGISlagpotentiel_ny_natur_3.js"></script>
+        <script src="data/Natur360besigtigelser2026medFeltID_1.js"></script>
+        <script src="data/MulignynaturWebGISlagpotentiel_ny_natur_2.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[55.2166792863442,11.881872169437004],[55.252512351691735,11.959869728060754]]);
+        }).fitBounds([[55.20441632737942,11.816970485987998],[55.27724865197771,12.021777090694853]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/qgis2web/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -140,120 +139,7 @@
         });
         layer_GoogleSatelithybrid_0;
         map.addLayer(layer_GoogleSatelithybrid_0);
-        function pop_WebGISlagnatur360_besigtigelser_2026_med_feltid_1(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Natyp_navn</th>\
-                        <td>' + (feature.properties['Natyp_navn'] !== null ? autolinker.link(String(feature.properties['Natyp_navn']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Sagsbeh</th>\
-                        <td>' + (feature.properties['Sagsbeh'] !== null ? autolinker.link(String(feature.properties['Sagsbeh']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Besig_dato</th>\
-                        <td>' + (feature.properties['Besig_dato'] !== null ? autolinker.link(String(feature.properties['Besig_dato']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">FeltID</th>\
-                        <td>' + (feature.properties['polygon_Na'] !== null ? autolinker.link(String(feature.properties['polygon_Na']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_WebGISlagnatur360_besigtigelser_2026_med_feltid_1_0(feature) {
-            switch(String(feature.properties['Natyp_navn'])) {
-                case 'Eng':
-                    return {
-                pane: 'pane_WebGISlagnatur360_besigtigelser_2026_med_feltid_1',
-                opacity: 1,
-                color: 'rgba(77,175,74,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 4.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Mose':
-                    return {
-                pane: 'pane_WebGISlagnatur360_besigtigelser_2026_med_feltid_1',
-                opacity: 1,
-                color: 'rgba(228,26,28,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 4.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Overdrev':
-                    return {
-                pane: 'pane_WebGISlagnatur360_besigtigelser_2026_med_feltid_1',
-                opacity: 1,
-                color: 'rgba(255,254,0,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 4.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Sø':
-                    return {
-                pane: 'pane_WebGISlagnatur360_besigtigelser_2026_med_feltid_1',
-                opacity: 1,
-                color: 'rgba(53,121,177,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 4.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                default:
-                    return {
-                pane: 'pane_WebGISlagnatur360_besigtigelser_2026_med_feltid_1',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(33,216,100,1.0)',
-                interactive: true,
-            }
-                    break;
-            }
-        }
-        map.createPane('pane_WebGISlagnatur360_besigtigelser_2026_med_feltid_1');
-        map.getPane('pane_WebGISlagnatur360_besigtigelser_2026_med_feltid_1').style.zIndex = 401;
-        map.getPane('pane_WebGISlagnatur360_besigtigelser_2026_med_feltid_1').style['mix-blend-mode'] = 'normal';
-        var layer_WebGISlagnatur360_besigtigelser_2026_med_feltid_1 = new L.geoJson(json_WebGISlagnatur360_besigtigelser_2026_med_feltid_1, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_WebGISlagnatur360_besigtigelser_2026_med_feltid_1',
-            layerName: 'layer_WebGISlagnatur360_besigtigelser_2026_med_feltid_1',
-            pane: 'pane_WebGISlagnatur360_besigtigelser_2026_med_feltid_1',
-            onEachFeature: pop_WebGISlagnatur360_besigtigelser_2026_med_feltid_1,
-            style: style_WebGISlagnatur360_besigtigelser_2026_med_feltid_1_0,
-        });
-        bounds_group.addLayer(layer_WebGISlagnatur360_besigtigelser_2026_med_feltid_1);
-        function pop_Natur360besigtigelser2026medFeltID_2(feature, layer) {
+        function pop_Natur360besigtigelser2026medFeltID_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Natyp_navn</th>\
@@ -279,11 +165,11 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Natur360besigtigelser2026medFeltID_2_0(feature) {
+        function style_Natur360besigtigelser2026medFeltID_1_0(feature) {
             switch(String(feature.properties['Natyp_navn'])) {
                 case 'Eng':
                     return {
-                pane: 'pane_Natur360besigtigelser2026medFeltID_2',
+                pane: 'pane_Natur360besigtigelser2026medFeltID_1',
                 opacity: 1,
                 color: 'rgba(77,175,74,1.0)',
                 dashArray: '',
@@ -296,7 +182,7 @@
                     break;
                 case 'Mose':
                     return {
-                pane: 'pane_Natur360besigtigelser2026medFeltID_2',
+                pane: 'pane_Natur360besigtigelser2026medFeltID_1',
                 opacity: 1,
                 color: 'rgba(228,26,28,1.0)',
                 dashArray: '',
@@ -309,7 +195,7 @@
                     break;
                 case 'Overdrev':
                     return {
-                pane: 'pane_Natur360besigtigelser2026medFeltID_2',
+                pane: 'pane_Natur360besigtigelser2026medFeltID_1',
                 opacity: 1,
                 color: 'rgba(255,254,0,1.0)',
                 dashArray: '',
@@ -322,7 +208,7 @@
                     break;
                 case 'Sø':
                     return {
-                pane: 'pane_Natur360besigtigelser2026medFeltID_2',
+                pane: 'pane_Natur360besigtigelser2026medFeltID_1',
                 opacity: 1,
                 color: 'rgba(53,121,177,1.0)',
                 dashArray: '',
@@ -335,7 +221,7 @@
                     break;
                 default:
                     return {
-                pane: 'pane_Natur360besigtigelser2026medFeltID_2',
+                pane: 'pane_Natur360besigtigelser2026medFeltID_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -350,21 +236,21 @@
                     break;
             }
         }
-        map.createPane('pane_Natur360besigtigelser2026medFeltID_2');
-        map.getPane('pane_Natur360besigtigelser2026medFeltID_2').style.zIndex = 402;
-        map.getPane('pane_Natur360besigtigelser2026medFeltID_2').style['mix-blend-mode'] = 'normal';
-        var layer_Natur360besigtigelser2026medFeltID_2 = new L.geoJson(json_Natur360besigtigelser2026medFeltID_2, {
+        map.createPane('pane_Natur360besigtigelser2026medFeltID_1');
+        map.getPane('pane_Natur360besigtigelser2026medFeltID_1').style.zIndex = 401;
+        map.getPane('pane_Natur360besigtigelser2026medFeltID_1').style['mix-blend-mode'] = 'normal';
+        var layer_Natur360besigtigelser2026medFeltID_1 = new L.geoJson(json_Natur360besigtigelser2026medFeltID_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Natur360besigtigelser2026medFeltID_2',
-            layerName: 'layer_Natur360besigtigelser2026medFeltID_2',
-            pane: 'pane_Natur360besigtigelser2026medFeltID_2',
-            onEachFeature: pop_Natur360besigtigelser2026medFeltID_2,
-            style: style_Natur360besigtigelser2026medFeltID_2_0,
+            dataVar: 'json_Natur360besigtigelser2026medFeltID_1',
+            layerName: 'layer_Natur360besigtigelser2026medFeltID_1',
+            pane: 'pane_Natur360besigtigelser2026medFeltID_1',
+            onEachFeature: pop_Natur360besigtigelser2026medFeltID_1,
+            style: style_Natur360besigtigelser2026medFeltID_1_0,
         });
-        bounds_group.addLayer(layer_Natur360besigtigelser2026medFeltID_2);
-        map.addLayer(layer_Natur360besigtigelser2026medFeltID_2);
-        function pop_MulignynaturWebGISlagpotentiel_ny_natur_3(feature, layer) {
+        bounds_group.addLayer(layer_Natur360besigtigelser2026medFeltID_1);
+        map.addLayer(layer_Natur360besigtigelser2026medFeltID_1);
+        function pop_MulignynaturWebGISlagpotentiel_ny_natur_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -385,7 +271,7 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        var pattern_MulignynaturWebGISlagpotentiel_ny_natur_3_0 = new L.StripePattern({
+        var pattern_MulignynaturWebGISlagpotentiel_ny_natur_2_0 = new L.StripePattern({
             weight: 0.3,
             spaceWeight: 2.0,
             color: '#df1cea',
@@ -393,19 +279,19 @@
             spaceOpacity: 0,
             angle: 225
         });
-        pattern_MulignynaturWebGISlagpotentiel_ny_natur_3_0.addTo(map);
-        function style_MulignynaturWebGISlagpotentiel_ny_natur_3_0() {
+        pattern_MulignynaturWebGISlagpotentiel_ny_natur_2_0.addTo(map);
+        function style_MulignynaturWebGISlagpotentiel_ny_natur_2_0() {
             return {
-                pane: 'pane_MulignynaturWebGISlagpotentiel_ny_natur_3',
+                pane: 'pane_MulignynaturWebGISlagpotentiel_ny_natur_2',
                 stroke: false,
                 fillOpacity: 1,
-                fillPattern: pattern_MulignynaturWebGISlagpotentiel_ny_natur_3_0,
+                fillPattern: pattern_MulignynaturWebGISlagpotentiel_ny_natur_2_0,
                 interactive: true,
             }
         }
-        function style_MulignynaturWebGISlagpotentiel_ny_natur_3_1() {
+        function style_MulignynaturWebGISlagpotentiel_ny_natur_2_1() {
             return {
-                pane: 'pane_MulignynaturWebGISlagpotentiel_ny_natur_3',
+                pane: 'pane_MulignynaturWebGISlagpotentiel_ny_natur_2',
                 opacity: 1,
                 color: 'rgba(223,28,234,1.0)',
                 dashArray: '',
@@ -416,25 +302,24 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_MulignynaturWebGISlagpotentiel_ny_natur_3');
-        map.getPane('pane_MulignynaturWebGISlagpotentiel_ny_natur_3').style.zIndex = 403;
-        map.getPane('pane_MulignynaturWebGISlagpotentiel_ny_natur_3').style['mix-blend-mode'] = 'normal';
-        var layer_MulignynaturWebGISlagpotentiel_ny_natur_3 = new L.geoJson.multiStyle(json_MulignynaturWebGISlagpotentiel_ny_natur_3, {
+        map.createPane('pane_MulignynaturWebGISlagpotentiel_ny_natur_2');
+        map.getPane('pane_MulignynaturWebGISlagpotentiel_ny_natur_2').style.zIndex = 402;
+        map.getPane('pane_MulignynaturWebGISlagpotentiel_ny_natur_2').style['mix-blend-mode'] = 'normal';
+        var layer_MulignynaturWebGISlagpotentiel_ny_natur_2 = new L.geoJson.multiStyle(json_MulignynaturWebGISlagpotentiel_ny_natur_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_MulignynaturWebGISlagpotentiel_ny_natur_3',
-            layerName: 'layer_MulignynaturWebGISlagpotentiel_ny_natur_3',
-            pane: 'pane_MulignynaturWebGISlagpotentiel_ny_natur_3',
-            onEachFeature: pop_MulignynaturWebGISlagpotentiel_ny_natur_3,
-            styles: [style_MulignynaturWebGISlagpotentiel_ny_natur_3_0,style_MulignynaturWebGISlagpotentiel_ny_natur_3_1,]
+            dataVar: 'json_MulignynaturWebGISlagpotentiel_ny_natur_2',
+            layerName: 'layer_MulignynaturWebGISlagpotentiel_ny_natur_2',
+            pane: 'pane_MulignynaturWebGISlagpotentiel_ny_natur_2',
+            onEachFeature: pop_MulignynaturWebGISlagpotentiel_ny_natur_2,
+            styles: [style_MulignynaturWebGISlagpotentiel_ny_natur_2_0,style_MulignynaturWebGISlagpotentiel_ny_natur_2_1,]
         });
-        bounds_group.addLayer(layer_MulignynaturWebGISlagpotentiel_ny_natur_3);
-        map.addLayer(layer_MulignynaturWebGISlagpotentiel_ny_natur_3);
+        bounds_group.addLayer(layer_MulignynaturWebGISlagpotentiel_ny_natur_2);
+        map.addLayer(layer_MulignynaturWebGISlagpotentiel_ny_natur_2);
         var overlaysTree = [
         {label: '<b>Redigeres løbende - arealer slettes når besigtiget</b>',  selectAllCheckbox: true, children: [
-            {label: '<img src="legend/MulignynaturWebGISlagpotentiel_ny_natur_3.png" /> Mulig ny natur - WebGIS-lag — potentiel_ny_natur', layer: layer_MulignynaturWebGISlagpotentiel_ny_natur_3},
-            {label: 'Natur360 besigtigelser 2026 med FeltID<br /><table><tr><td style="text-align: center;"><img src="legend/Natur360besigtigelser2026medFeltID_2_Eng0.png" /></td><td>Eng</td></tr><tr><td style="text-align: center;"><img src="legend/Natur360besigtigelser2026medFeltID_2_Mose1.png" /></td><td>Mose</td></tr><tr><td style="text-align: center;"><img src="legend/Natur360besigtigelser2026medFeltID_2_Overdrev2.png" /></td><td>Overdrev</td></tr><tr><td style="text-align: center;"><img src="legend/Natur360besigtigelser2026medFeltID_2_Sø3.png" /></td><td>Sø</td></tr><tr><td style="text-align: center;"><img src="legend/Natur360besigtigelser2026medFeltID_2_4.png" /></td><td></td></tr></table>', layer: layer_Natur360besigtigelser2026medFeltID_2},]},
-            {label: 'WebGIS-lag — natur360_besigtigelser_2026_med_feltid<br /><table><tr><td style="text-align: center;"><img src="legend/WebGISlagnatur360_besigtigelser_2026_med_feltid_1_Eng0.png" /></td><td>Eng</td></tr><tr><td style="text-align: center;"><img src="legend/WebGISlagnatur360_besigtigelser_2026_med_feltid_1_Mose1.png" /></td><td>Mose</td></tr><tr><td style="text-align: center;"><img src="legend/WebGISlagnatur360_besigtigelser_2026_med_feltid_1_Overdrev2.png" /></td><td>Overdrev</td></tr><tr><td style="text-align: center;"><img src="legend/WebGISlagnatur360_besigtigelser_2026_med_feltid_1_Sø3.png" /></td><td>Sø</td></tr><tr><td style="text-align: center;"><img src="legend/WebGISlagnatur360_besigtigelser_2026_med_feltid_1_4.png" /></td><td></td></tr></table>', layer: layer_WebGISlagnatur360_besigtigelser_2026_med_feltid_1},
+            {label: '<img src="legend/MulignynaturWebGISlagpotentiel_ny_natur_2.png" /> Mulig ny natur - WebGIS-lag — potentiel_ny_natur', layer: layer_MulignynaturWebGISlagpotentiel_ny_natur_2},
+            {label: 'Natur360 besigtigelser 2026 med FeltID<br /><table><tr><td style="text-align: center;"><img src="legend/Natur360besigtigelser2026medFeltID_1_Eng0.png" /></td><td>Eng</td></tr><tr><td style="text-align: center;"><img src="legend/Natur360besigtigelser2026medFeltID_1_Mose1.png" /></td><td>Mose</td></tr><tr><td style="text-align: center;"><img src="legend/Natur360besigtigelser2026medFeltID_1_Overdrev2.png" /></td><td>Overdrev</td></tr><tr><td style="text-align: center;"><img src="legend/Natur360besigtigelser2026medFeltID_1_Sø3.png" /></td><td>Sø</td></tr><tr><td style="text-align: center;"><img src="legend/Natur360besigtigelser2026medFeltID_1_4.png" /></td><td></td></tr></table>', layer: layer_Natur360besigtigelser2026medFeltID_1},]},
         {label: '<b>Baggrundskort</b>',  selectAllCheckbox: true, children: [
             {label: "Google Satelit hybrid", layer: layer_GoogleSatelithybrid_0},]},]
         var lay = L.control.layers.tree(null, overlaysTree,{
@@ -449,12 +334,12 @@
         lay.addTo(map);
         setBounds();
         var i = 0;
-        layer_WebGISlagnatur360_besigtigelser_2026_med_feltid_1.eachLayer(function(layer) {
+        layer_Natur360besigtigelser2026medFeltID_1.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['polygon_Na'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['polygon_Na']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_WebGISlagnatur360_besigtigelser_2026_med_feltid_1'});
+            layer.bindTooltip((layer.feature.properties['polygon_Na'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['polygon_Na']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Natur360besigtigelser2026medFeltID_1'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -462,40 +347,27 @@
               i++;
         });
         var i = 0;
-        layer_Natur360besigtigelser2026medFeltID_2.eachLayer(function(layer) {
+        layer_MulignynaturWebGISlagpotentiel_ny_natur_2.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['polygon_Na'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['polygon_Na']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Natur360besigtigelser2026medFeltID_2'});
+            layer.bindTooltip((layer.feature.properties['ID_1'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['ID_1']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_MulignynaturWebGISlagpotentiel_ny_natur_2'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
               addLabel(layer, i);
               i++;
         });
-        var i = 0;
-        layer_MulignynaturWebGISlagpotentiel_ny_natur_3.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                variables: {}
-            };
-            layer.bindTooltip((layer.feature.properties['ID_1'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['ID_1']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_MulignynaturWebGISlagpotentiel_ny_natur_3'});
-            labels.push(layer);
-            totalMarkers += 1;
-              layer.added = true;
-              addLabel(layer, i);
-              i++;
-        });
-        resetLabels([layer_WebGISlagnatur360_besigtigelser_2026_med_feltid_1,layer_Natur360besigtigelser2026medFeltID_2,layer_MulignynaturWebGISlagpotentiel_ny_natur_3]);
+        resetLabels([layer_Natur360besigtigelser2026medFeltID_1,layer_MulignynaturWebGISlagpotentiel_ny_natur_2]);
         map.on("zoomend", function(){
-            resetLabels([layer_WebGISlagnatur360_besigtigelser_2026_med_feltid_1,layer_Natur360besigtigelser2026medFeltID_2,layer_MulignynaturWebGISlagpotentiel_ny_natur_3]);
+            resetLabels([layer_Natur360besigtigelser2026medFeltID_1,layer_MulignynaturWebGISlagpotentiel_ny_natur_2]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_WebGISlagnatur360_besigtigelser_2026_med_feltid_1,layer_Natur360besigtigelser2026medFeltID_2,layer_MulignynaturWebGISlagpotentiel_ny_natur_3]);
+            resetLabels([layer_Natur360besigtigelser2026medFeltID_1,layer_MulignynaturWebGISlagpotentiel_ny_natur_2]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_WebGISlagnatur360_besigtigelser_2026_med_feltid_1,layer_Natur360besigtigelser2026medFeltID_2,layer_MulignynaturWebGISlagpotentiel_ny_natur_3]);
+            resetLabels([layer_Natur360besigtigelser2026medFeltID_1,layer_MulignynaturWebGISlagpotentiel_ny_natur_2]);
         });
         </script>        
     </body>
